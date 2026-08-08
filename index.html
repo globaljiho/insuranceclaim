@@ -12,15 +12,20 @@
     
     <style>
         :root {
-            /* 파스텔톤 컬러 설정 */
-            --pastel-blue: #AEC6CF;
-            --pastel-blue-light: #EEF4F6;
-            --pastel-red: #F5B7B1;
-            --pastel-red-light: #FDEDEC;
-            --text-dark: #333333;
-            --text-gray: #666666;
-            --bg-color: #FAFAFA;
+            /* 기본 텍스트 색상 강화 (가독성 향상) */
+            --text-dark: #111111;
+            --text-gray: #444444;
+            --bg-color: #F4F6F8;
         }
+
+        /* 무지개 테마 변수 설정 (각 섹션 ID별로 적용됨) */
+        #silson24 { --theme-color: #D32F2F; --theme-bg: #FDEDEC; } /* 빨강 */
+        #platform { --theme-color: #D35400; --theme-bg: #FEF5E7; } /* 주황 */
+        #apps     { --theme-color: #B7950B; --theme-bg: #FEF9E7; } /* 노랑 */
+        #sonbo    { --theme-color: #27AE60; --theme-bg: #E8F8F5; } /* 초록 */
+        #saengbo  { --theme-color: #2980B9; --theme-bg: #EAF2F8; } /* 파랑 */
+        #forms    { --theme-color: #303F9F; --theme-bg: #E8EAF6; } /* 남색 */
+        #docs     { --theme-color: #8E44AD; --theme-bg: #F4ECF7; } /* 보라 */
 
         body {
             font-family: 'Nanum Gothic', sans-serif;
@@ -32,13 +37,13 @@
             word-break: keep-all;
         }
 
-        /* 헤더 (파스텔 파랑-빨강 그라데이션) */
+        /* 헤더 (가독성을 위해 어두운 톤의 그라데이션 적용) */
         header {
-            background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-red));
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
             color: white;
             text-align: center;
             padding: 4rem 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         .top-bar {
@@ -46,24 +51,27 @@
             font-weight: 800;
             margin-bottom: 0.5rem;
             letter-spacing: 1px;
+            color: rgba(255,255,255,0.85);
         }
 
         header h1 {
             margin: 0.5rem 0 1rem 0;
             font-size: 2.5rem;
             font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         header h1 em {
             font-style: normal;
-            color: #fffbe6;
+            color: #FFD700; /* 노란색 포인트 */
         }
 
         header p {
             font-size: 1.05rem;
             max-width: 700px;
             margin: 0 auto 2rem auto;
-            opacity: 0.95;
+            color: rgba(255,255,255,0.95);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         nav {
@@ -76,19 +84,20 @@
         }
 
         nav a {
-            background-color: rgba(255, 255, 255, 0.25);
+            background-color: rgba(0, 0, 0, 0.3); /* 반투명 검정 배경으로 변경 */
             color: white;
             text-decoration: none;
             padding: 0.6rem 1.2rem;
             border-radius: 30px;
             font-weight: 700;
             font-size: 0.9rem;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: var(--text-dark);
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #2b5876;
         }
 
         /* 메인 컨텐츠 영역 */
@@ -98,20 +107,14 @@
             padding: 3rem 1rem;
         }
 
+        /* 개별 섹션 (무지개색 변수 적용) */
         section {
             background: white;
             border-radius: 15px;
             padding: 2.5rem;
             margin-bottom: 2.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        /* 섹션별 테마 컬러 교차 적용 */
-        section:nth-child(odd) {
-            border-top: 5px solid var(--pastel-blue);
-        }
-        section:nth-child(even) {
-            border-top: 5px solid var(--pastel-red);
+            border-top: 5px solid var(--theme-color);
         }
 
         .route-title {
@@ -136,7 +139,7 @@
             font-size: 1.05rem;
         }
 
-        /* 카드 UI */
+        /* 카드 UI (섹션 테마 배경색 자동 적용) */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -144,15 +147,11 @@
         }
 
         .card {
-            background-color: var(--pastel-blue-light);
+            background-color: var(--theme-bg);
             padding: 1.8rem;
             border-radius: 12px;
             display: flex;
             flex-direction: column;
-        }
-
-        .card.red-theme {
-            background-color: var(--pastel-red-light);
         }
 
         .card h3, .card h4 {
@@ -162,23 +161,18 @@
             font-size: 1.3rem;
         }
 
+        /* 뱃지 (섹션 테마 글씨색 자동 적용) */
         .badge {
             align-self: flex-start;
             display: inline-block;
             background-color: white;
+            color: var(--theme-color);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 800;
             margin-bottom: 0.8rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .card.red-theme .badge {
-            color: #d27979;
-        }
-        .card:not(.red-theme) .badge {
-            color: #6a96a8;
         }
 
         .step-list {
@@ -188,15 +182,16 @@
         .step-list div {
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
+            color: var(--text-dark);
         }
 
         .step-list b {
             display: inline-block;
             width: 60px;
-            color: var(--pastel-blue);
+            color: var(--theme-color);
         }
 
-        /* 버튼 및 링크 */
+        /* 버튼 및 링크 (섹션 테마색 호버 자동 적용) */
         .btn-group {
             margin-top: auto;
             padding-top: 1.5rem;
@@ -220,8 +215,8 @@
         }
 
         .btn:hover {
-            border-color: var(--pastel-blue);
-            color: var(--pastel-blue);
+            border-color: var(--theme-color);
+            color: var(--theme-color);
         }
 
         /* 앱스토어 전용 버튼 스타일 */
@@ -232,12 +227,12 @@
         }
         
         .btn.store-btn:hover {
-            background-color: #555;
-            border-color: #555;
+            background-color: var(--theme-color);
+            border-color: var(--theme-color);
             color: #fff;
         }
 
-        /* 보험사 리스트 (그리드) - 5열 배치 적용 */
+        /* 보험사 리스트 (그리드) - 5열 배치 */
         .company-list {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -280,7 +275,7 @@
         .company-links a {
             display: block;
             font-size: 0.85rem;
-            color: #666;
+            color: var(--text-gray);
             text-decoration: none;
             background-color: #f9f9f9;
             padding: 0.6rem;
@@ -289,8 +284,8 @@
         }
 
         .company-links a:hover {
-            background-color: var(--pastel-blue-light);
-            color: var(--text-dark);
+            background-color: var(--theme-bg);
+            color: var(--theme-color);
             font-weight: bold;
         }
         
@@ -308,6 +303,7 @@
 
         ul {
             padding-left: 1.5rem;
+            color: var(--text-dark);
         }
         
         ul li {
@@ -327,7 +323,7 @@
             font-size: 1.2rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            color: var(--pastel-blue-light);
+            color: #EEF4F6;
         }
 
         footer .notice {
@@ -359,7 +355,7 @@
 
     <div class="container">
         
-        <!-- Route 01 -->
+        <!-- Route 01 (빨강) -->
         <section id="silson24">
             <div class="route-title">Route 01 · 공식 전산청구</div>
             <h2>실손24 — 종이 서류 없이, 앱 하나로</h2>
@@ -385,14 +381,14 @@
             <p style="margin-top:1.5rem;">연계되지 않은 병원·약국은 아래 ②~⑤의 방법으로 청구하시면 됩니다. 네이버지도·카카오맵에서 "실손24"를 검색하면 연계 병원을 지도로 확인할 수 있습니다.</p>
         </section>
 
-        <!-- Route 02 -->
+        <!-- Route 02 (주황) -->
         <section id="platform">
             <div class="route-title">Route 02 · 생활 플랫폼 연계</div>
             <h2>이미 쓰고 계신 앱에서 바로 청구</h2>
             <p>따로 앱 설치하지 않아도, 매일 쓰는 금융 앱 안에 청구 창구가 들어와 있습니다. 실손24와 연계되어 병원비 결제 알림까지 챙겨 줍니다.</p>
             
             <div class="card-grid">
-                <div class="card red-theme">
+                <div class="card">
                     <span class="badge">간편청구 + 결제 알림</span>
                     <h4>토스 (Toss)</h4>
                     <p>병원비 카드결제 시 청구 알림을 보내주고, "서류 발급 없는 실손청구" 검색으로 실손24 간편청구와 연결됩니다. 지난 진료는 '병원비 돌려받기'에서 확인.</p>
@@ -400,7 +396,7 @@
                         <a href="https://toss.im" class="btn" target="_blank" rel="noopener">toss.im 바로가기</a>
                     </div>
                 </div>
-                <div class="card red-theme">
+                <div class="card">
                     <span class="badge">앱 설치 없이 청구</span>
                     <h4>네이버페이 (Npay)</h4>
                     <p>네이버페이 안에서 실손24 간편청구 서비스를 제공하며, '내 자산' 카드 결제내역 기반으로 청구 잊음 방지 알림을 보내줍니다.</p>
@@ -408,7 +404,7 @@
                         <a href="https://pay.naver.com" class="btn" target="_blank" rel="noopener">pay.naver.com 바로가기</a>
                     </div>
                 </div>
-                <div class="card red-theme">
+                <div class="card">
                     <span class="badge">카톡에서 바로</span>
                     <h4>카카오페이</h4>
                     <p>카카오톡·카카오페이의 보험 메뉴에서 실손보험금 청구 서비스를 이용할 수 있어, 별도 앱 없이 익숙한 환경에서 청구가 가능합니다.</p>
@@ -419,7 +415,7 @@
             </div>
         </section>
 
-        <!-- Route 03 -->
+        <!-- Route 03 (노랑) -->
         <section id="apps">
             <div class="route-title">Route 03 · 민간 간편청구 앱</div>
             <h2>병원과 손잡은 청구 도우미 앱</h2>
@@ -455,7 +451,7 @@
             <p style="margin-top:1.5rem;">민간 앱은 제휴 병원 범위·기능이 수시로 바뀝니다. 자주 가시는 병원이 어느 앱과 제휴인지 한 번만 확인해 두시면, 다음 진료부터는 1분 청구가 됩니다.</p>
         </section>
 
-        <!-- Route 04 -->
+        <!-- Route 04 (초록) -->
         <section id="sonbo">
             <div class="route-title">Route 04 · 손해보험사 직접청구</div>
             <h2>손해보험사 — 앱·홈페이지·콜센터</h2>
@@ -478,7 +474,7 @@
             <p style="font-size: 0.9rem; margin-bottom: 0;">MG손해보험 계약은 계약이전 절차에 따라 접수처가 다를 수 있으니, 증권에 표시된 회사 콜센터로 먼저 확인하시는 것이 안전합니다.</p>
         </section>
 
-        <!-- Route 05 -->
+        <!-- Route 05 (파랑) -->
         <section id="saengbo">
             <div class="route-title">Route 05 · 생명보험사 직접청구</div>
             <h2>생명보험사 — 판매를 멈췄어도 청구는 계속됩니다</h2>
@@ -500,11 +496,11 @@
             </div>
         </section>
 
-        <!-- Route 06 -->
+        <!-- Route 06 (남색 - 치아보험 전용) -->
         <section id="forms">
             <div class="route-title">Route 06 · 청구서 양식 다운로드</div>
             
-            <div class="badge" style="background-color: var(--pastel-red-light); color: #d27979;">치아보험 전용</div>
+            <div class="badge">치아보험 전용</div>
             <div class="route06-header">
                 <h2>치아보험 청구서류 — 치과치료확인서까지 한 번에</h2>
                 <hr>
@@ -526,7 +522,7 @@
             <p style="font-size: 0.95rem; margin-top: 1.5rem;">치아보험 청구 체크 3가지 — ① 발치·임플란트는 <b>단계별(식립·보철 등) 확인서 기재</b>가 있어야 담보별 지급이 매끄럽습니다. ② 치식도(치아 번호 그림) 누락이 가장 흔한 보완 사유입니다. ③ 면책·감액 기간이 지난 치료인지 가입일 기준으로 먼저 확인하세요.</p>
         </section>
 
-        <!-- Route 07 -->
+        <!-- Route 07 (보라) -->
         <section id="docs">
             <div class="route-title">Route 07 · 서류 준비와 청구의 골든룰</div>
             <h2>어떤 길로 가든, 이것만 챙기면 됩니다</h2>
