@@ -263,7 +263,7 @@
             color: var(--theme-color);
         }
 
-        /* 구글플레이 커스텀 버튼 (흰 배경 + 검은 테두리 + 검은 글씨) */
+        /* 구글플레이 버튼: 흰 바탕 + 검은 테두리 + 검은 글씨 */
         .btn.google-store-btn {
             background-color: #ffffff;
             border: 2px solid #111111;
@@ -275,7 +275,7 @@
             border-color: #000000;
         }
 
-        /* 앱스토어 커스텀 버튼 (흰 배경 + 파란 테두리 + 파란 글씨) */
+        /* 앱스토어 버튼: 흰 바탕 + 파란 테두리 + 파란 글씨 */
         .btn.apple-store-btn {
             background-color: #ffffff;
             border: 2px solid #0071E3;
@@ -285,6 +285,26 @@
             background-color: #f0f7ff;
             color: #005bb5;
             border-color: #005bb5;
+        }
+
+        /* [추가] 내보험찾아줌 강조형 고가시성 버튼 (1.5배 크기 + 눈에 띄는 그라데이션) */
+        .btn.highlight-cta {
+            background: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
+            color: white;
+            border: none;
+            padding: 0.9rem 2.2rem;
+            font-size: 1.35rem;
+            font-weight: 800;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(221, 36, 118, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: -0.5px;
+        }
+        .btn.highlight-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(221, 36, 118, 0.6);
+            background: linear-gradient(135deg, #DD2476 0%, #FF512F 100%);
+            color: white;
         }
 
         /* 스토어 로고 SVG 스타일 */
@@ -646,8 +666,9 @@
                 <li><b>보장 제외 확인</b> — 미용 · 성형, 건강검진, 단순 영양 목적 주사 등은 지급 대상이 아닐 수 있습니다.</li>
             </ul>
             
-            <div class="btn-group" style="margin-top: 2rem; justify-content: center;">
-                <a href="https://cont.insure.or.kr" class="btn" target="_blank" rel="noopener">내보험찾아줌 — 숨은 보험금 조회</a>
+            <!-- [수정완료] 1.5배 크기 및 강렬한 시인성을 가진 강조형 버튼으로 변경 -->
+            <div class="btn-group" style="margin-top: 2.5rem; justify-content: center;">
+                <a href="https://cont.insure.or.kr" class="btn highlight-cta" target="_blank" rel="noopener">🔍 내보험찾아줌 — 숨은 보험금 조회하기</a>
             </div>
         </section>
 
