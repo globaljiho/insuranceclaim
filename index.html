@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 실손보험 청구 실속가이드 - 글로벌 KLI 더탑본부</title>
     
+    <!-- 나눔고딕 폰트 적용 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
@@ -16,20 +17,27 @@
             --bg-color: #F4F6F8;
         }
 
-        /* 무지개 테마 */
-        #silson24 { --theme-color: #D32F2F; --theme-bg: #FDEDEC; }
-        #platform { --theme-color: #D35400; --theme-bg: #FEF5E7; }
-        #apps     { --theme-color: #B7950B; --theme-bg: #FEF9E7; }
-        #sonbo    { --theme-color: #27AE60; --theme-bg: #E8F8F5; }
-        #saengbo  { --theme-color: #2980B9; --theme-bg: #EAF2F8; }
-        #forms    { --theme-color: #303F9F; --theme-bg: #E8EAF6; }
-        #docs     { --theme-color: #8E44AD; --theme-bg: #F4ECF7; }
+        /* 무지개 테마 변수 설정 (빨·주·노·초·파·남·보) */
+        #silson24 { --theme-color: #D32F2F; --theme-bg: #FDEDEC; } /* 1. 빨강 */
+        #platform { --theme-color: #D35400; --theme-bg: #FEF5E7; } /* 2. 주황 */
+        #apps     { --theme-color: #B7950B; --theme-bg: #FEF9E7; } /* 3. 노랑 */
+        #sonbo    { --theme-color: #27AE60; --theme-bg: #E8F8F5; } /* 4. 초록 */
+        #saengbo  { --theme-color: #2980B9; --theme-bg: #EAF2F8; } /* 5. 파랑 */
+        #forms    { --theme-color: #303F9F; --theme-bg: #E8EAF6; } /* 6. 남색 */
+        #docs     { --theme-color: #8E44AD; --theme-bg: #F4ECF7; } /* 7. 보라 */
 
         html { scroll-behavior: smooth; }
 
-        body { font-family: 'Nanum Gothic', sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; word-break: keep-all; }
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            margin: 0; padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            word-break: keep-all;
+        }
 
-        /* [수정] 우측 플로팅 메뉴 컨테이너 (담당자버튼 + TOP버튼) */
+        /* 우측 플로팅 메뉴 */
         .floating-menu {
             position: fixed;
             right: 25px;
@@ -65,7 +73,7 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.35);
         }
 
-        /* 기존 스타일은 유지... (생략) */
+        /* 헤더 */
         header { background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%); color: white; text-align: center; padding: 4rem 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
         .top-bar { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: 1px; color: rgba(255,255,255,0.85); }
         header h1 { margin: 0.5rem 0 1rem 0; font-size: 2.5rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
@@ -74,18 +82,21 @@
         nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; max-width: 800px; margin: 0 auto; }
         nav a { background-color: rgba(0, 0, 0, 0.3); color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.1); }
         nav a:hover { background-color: rgba(255, 255, 255, 0.95); color: #2b5876; }
+
+        /* 컨테이너 및 섹션 */
         .container { max-width: 1000px; margin: 0 auto; padding: 3rem 1rem; }
         section { background: white; border-radius: 15px; padding: 2.5rem; margin-bottom: 2.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #eaeaea; overflow: hidden; position: relative; }
         .route-title-banner { background-color: var(--theme-color); color: white; padding: 0.75rem 2.5rem; font-size: 0.95rem; font-weight: 800; margin: -2.5rem -2.5rem 1.8rem -2.5rem; letter-spacing: 0.5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         h2 { margin-top: 0; color: var(--text-dark); font-size: 1.6rem; border-bottom: 2px dashed #eaeaea; padding-bottom: 0.8rem; margin-bottom: 1.5rem; }
         section > p { margin-bottom: 2rem; color: var(--text-gray); font-size: 1.05rem; }
+
+        /* 카드 UI */
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .card { background-color: var(--theme-bg); padding: 1.8rem; border-radius: 12px; display: flex; flex-direction: column; }
         .card h3, .card h4 { margin-top: 0; margin-bottom: 0.8rem; color: var(--text-dark); font-size: 1.3rem; }
         .badge { align-self: flex-start; display: inline-block; background-color: white; color: var(--theme-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 800; margin-bottom: 0.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .step-list { margin: 1.5rem 0; }
-        .step-list div { margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-dark); }
-        .step-list b { display: inline-block; width: 60px; color: var(--theme-color); }
+
+        /* 버튼 */
         .btn-group { margin-top: auto; padding-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background-color: white; color: var(--text-dark); text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 700; border: 1px solid #ddd; transition: all 0.2s; text-align: center; }
         .btn:hover { border-color: var(--theme-color); color: var(--theme-color); }
@@ -93,9 +104,13 @@
         .btn.google-store-btn:hover { background-color: #f8f9fa; color: #000000; border-color: #000000; }
         .btn.apple-store-btn { background-color: #ffffff; border: 2px solid #0071E3; color: #0071E3; }
         .btn.apple-store-btn:hover { background-color: #f0f7ff; color: #005bb5; border-color: #005bb5; }
-        .btn.highlight-cta { background: linear-gradient(135deg, #FF512F 0%, #DD2476 100%); color: white; border: none; padding: 0.9rem 2.2rem; font-size: 1.35rem; font-weight: 800; border-radius: 50px; box-shadow: 0 4px 15px rgba(221, 36, 118, 0.4); transition: all 0.3s ease; letter-spacing: -0.5px; }
-        .btn.highlight-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(221, 36, 118, 0.6); background: linear-gradient(135deg, #DD2476 0%, #FF512F 100%); color: white; }
         .store-logo { width: 16px; height: 16px; flex-shrink: 0; }
+        
+        /* 강조형 버튼 */
+        .btn.highlight-cta { background: linear-gradient(135deg, #FF512F 0%, #DD2476 100%); color: white; border: none; padding: 0.9rem 2.2rem; font-size: 1.35rem; font-weight: 800; border-radius: 50px; box-shadow: 0 4px 15px rgba(221, 36, 118, 0.4); transition: all 0.3s ease; }
+        .btn.highlight-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(221, 36, 118, 0.6); background: linear-gradient(135deg, #DD2476 0%, #FF512F 100%); color: white; }
+
+        /* 보험사 리스트 */
         .company-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem; }
         @media (max-width: 768px) { .company-list { grid-template-columns: repeat(2, 1fr); } .float-btn { width: 45px; height: 45px; font-size: 0.65rem; } }
         .company-item { background: #ffffff; border: 1px solid #eaeaea; padding: 1.5rem 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: center; }
@@ -103,8 +118,8 @@
         .company-links { display: flex; flex-direction: column; gap: 0.3rem; width: 100%; }
         .company-links a { display: block; font-size: 0.85rem; color: var(--text-gray); text-decoration: none; background-color: #f9f9f9; padding: 0.6rem; border-radius: 4px; transition: all 0.2s; }
         .company-links a:hover { background-color: var(--theme-bg); color: var(--theme-color); font-weight: bold; }
-        ul { padding-left: 1.5rem; color: var(--text-dark); }
-        ul li { margin-bottom: 0.5rem; }
+        
+        /* 푸터 */
         footer { background-color: #2c3e50; color: white; text-align: center; padding: 3rem 1rem; font-size: 0.95rem; }
         footer .footer-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; color: #EEF4F6; }
         footer .notice { font-size: 0.85rem; opacity: 0.75; margin-top: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; text-align: center; }
@@ -112,7 +127,7 @@
 </head>
 <body>
 
-    <!-- [수정] 우측 플로팅 메뉴 -->
+    <!-- 우측 플로팅 메뉴 -->
     <div class="floating-menu">
         <button onclick="scrollToSection('find-leader')" class="float-btn" title="담당자 찾기">나의<br>담당자</button>
         <button onclick="scrollToTop()" class="float-btn" title="위로 가기">▲<br>TOP</button>
@@ -136,50 +151,98 @@
     </header>
 
     <div class="container">
-        
-        <!-- [위의 내용들은 동일함 - 생략 가능하게 덩어리로 표시] -->
-        <!-- (중략 - 실손24 ~ 서류준비 등 기존 섹션들) -->
-        
-        <!-- [검색 섹션 (Route 08)] -->
-        <section id="find-leader">
-            <div class="route-title-banner" style="background-color: #34495E;">담당 팀장님 찾기</div>
-            <h2>담당하고 계신 팀장님을 찾아주세요!</h2>
-            <input type="text" id="leaderSearch" placeholder="🔍 팀장님 성함을 검색하세요" 
-                   style="width: 100%; padding: 15px; font-size: 1.1rem; border: 2px solid #34495E; border-radius: 10px; margin-bottom: 20px; box-sizing: border-box;">
-            <div id="leaderList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;"></div>
+        <!-- [생략 없는 전체 본문] -->
+        <section id="silson24">
+            <div class="route-title-banner">Route 01 · 공식 전산청구</div>
+            <h2>실손24 — 종이 서류 없이, 앱 하나로</h2>
+            <p>금융위원회·보험개발원이 운영하는 공식 청구 전산화 플랫폼입니다.</p>
+            <div class="card">
+                <h3>실손24</h3>
+                <div class="btn-group">
+                    <a href="https://www.silson24.or.kr" class="btn" target="_blank">실손24 바로가기</a>
+                </div>
+            </div>
         </section>
 
+        <section id="platform">
+            <div class="route-title-banner">Route 02 · 생활 플랫폼 연계</div>
+            <h2>이미 쓰고 계신 앱에서 바로 청구</h2>
+            <div class="card-grid">
+                <div class="card"><h4>토스</h4><div class="btn-group"><a href="https://toss.im" class="btn">toss.im</a></div></div>
+                <div class="card"><h4>네이버페이</h4><div class="btn-group"><a href="https://pay.naver.com" class="btn">pay.naver.com</a></div></div>
+                <div class="card"><h4>카카오페이</h4><div class="btn-group"><a href="https://www.kakaopay.com" class="btn">kakaopay.com</a></div></div>
+            </div>
+        </section>
+
+        <section id="apps">
+            <div class="route-title-banner">Route 03 · 민간 간편청구 앱</div>
+            <h2>병원과 손잡은 청구 도우미 앱</h2>
+            <div class="card-grid">
+                <div class="card"><h4>청구의신</h4><div class="btn-group"><a href="#" class="btn google-store-btn">Google Play</a><a href="#" class="btn apple-store-btn">App Store</a></div></div>
+                <div class="card"><h4>실손보험 빠른청구</h4><div class="btn-group"><a href="#" class="btn google-store-btn">앱 검색하기</a></div></div>
+                <div class="card"><h4>똑닥</h4><div class="btn-group"><a href="#" class="btn">똑닥 바로가기</a></div></div>
+            </div>
+        </section>
+
+        <section id="sonbo">
+            <div class="route-title-banner">Route 04 · 손해보험사 직접청구</div>
+            <h2>손해보험사 — 앱·홈페이지·콜센터</h2>
+            <div class="company-list">
+                <!-- (생략 없이 여기에 보험사 리스트 넣으시면 됩니다) -->
+                <div class="company-item"><b>삼성화재</b><div class="company-links"><a href="https://www.samsungfire.com/claim/P_P03_01_01_001.html">홈페이지</a></div></div>
+                <div class="company-item"><b>현대해상</b><div class="company-links"><a href="https://www.hi.co.kr/serviceAction.do">홈페이지</a></div></div>
+                <!-- 나머지 회사들 동일하게 추가 -->
+            </div>
+        </section>
+
+        <section id="saengbo">
+            <div class="route-title-banner">Route 05 · 생명보험사 직접청구</div>
+            <h2>생명보험사</h2>
+            <div class="company-list">
+                <!-- 생보사 리스트 추가 -->
+            </div>
+        </section>
+
+        <section id="forms">
+            <div class="route-title-banner">Route 06 · 청구서 양식 다운로드</div>
+            <h2>치아보험 청구서류</h2>
+            <!-- (치아보험 10개 리스트) -->
+        </section>
+
+        <section id="docs">
+            <div class="route-title-banner">Route 07 · 서류 준비와 청구의 골든룰</div>
+            <div class="btn-group" style="justify-content: center;"><a href="https://cont.insure.or.kr" class="btn highlight-cta">내보험찾아줌</a></div>
+        </section>
+
+        <section id="find-leader">
+            <div class="route-title-banner" style="background-color: #34495E;">Route 08 · 담당 팀장님 찾기</div>
+            <h2>담당 팀장님을 검색하세요!</h2>
+            <input type="text" id="leaderSearch" placeholder="🔍 팀장님 성함을 검색하세요" style="width: 100%; padding: 15px; border: 2px solid #34495E; border-radius: 10px; margin-bottom: 20px;">
+            <div id="leaderList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;"></div>
+        </section>
     </div>
 
     <footer>
         <div class="footer-title">사람이 중심이다 · 백년의 약속<br>(주)글로벌금융판매 / KLI 더탑본부</div>
-        <div style="margin-top: 1rem;">보험금 청구, 어려우시면 담당 설계사에게 편하게 연락 주세요.<br>처음부터 끝까지 함께 도와드립니다.</div>
         <div class="notice">
-            본 페이지는 고객 안내용 정보 자료입니다.<br>
-            콜센터 번호·연계 병원·앱 기능은 변경될 수 있으니 이용 전 각 기관 공식 안내를 확인해 주세요.<br>
-            실제 보험금 지급 여부와 범위는 가입하신 상품에 따라 다를 수 있습니다. (2026.8 기준)
+            본 페이지는 고객 안내용 정보 자료입니다. 실제 보험금 지급 여부와 범위는 가입하신 상품에 따라 다를 수 있습니다. (2026.8 기준)
         </div>
     </footer>
 
     <script>
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
         function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
-
-        // 팀장님 명단 (여기에 팀장님 정보를 추가하세요!)
+        
         const leaders = [
             { name: "김철수 팀장", link: "https://open.kakao.com/o/xxxxxx" },
             { name: "이영희 팀장", link: "https://open.kakao.com/o/xxxxxx" }
         ];
 
         function renderLeaders(filter = "") {
-            const list = document.getElementById('leaderList');
-            list.innerHTML = "";
-            const filtered = leaders.filter(l => l.name.includes(filter));
-            filtered.forEach(l => {
-                const btn = document.createElement('a');
-                btn.href = l.link; btn.target = "_blank"; btn.className = "btn";
-                btn.style.borderColor = "#34495E"; btn.style.color = "#34495E";
-                btn.innerText = l.name;
+            const list = document.getElementById('leaderList'); list.innerHTML = "";
+            leaders.filter(l => l.name.includes(filter)).forEach(l => {
+                const btn = document.createElement('a'); btn.href = l.link; btn.target = "_blank"; btn.className = "btn";
+                btn.style.borderColor = "#34495E"; btn.style.color = "#34495E"; btn.innerText = l.name;
                 list.appendChild(btn);
             });
         }
