@@ -60,14 +60,15 @@
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             font-size: 0.58rem;
             font-weight: 800;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
             transition: all 0.3s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             white-space: nowrap;
@@ -85,8 +86,8 @@
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             font-size: 0.75rem;
             font-weight: 800;
             cursor: pointer;
@@ -117,23 +118,9 @@
 
         /* 방문자 카운터 스타일 */
         .visitor-counter {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
+            margin-bottom: 1.5rem;
             font-size: 0.85rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.2rem;
-            letter-spacing: 0.5px;
-        }
-
-        .visitor-counter span {
-            color: #FFD700;
-            font-weight: 800;
+            opacity: 0.9;
         }
 
         .top-bar {
@@ -476,14 +463,14 @@
 
     <!-- 우측 플로팅 메뉴 (가로 정렬: 나의 매니저 + TOP) -->
     <div class="floating-menu">
-        <button onclick="scrollToSection('find-leader')" class="float-btn manager-btn" title="매니저 찾기">나의 매니저</button>
+        <button onclick="scrollToSection('find-leader')" class="float-btn manager-btn" title="매니저 찾기">나의<br>매니저</button>
         <button onclick="scrollToTop()" class="float-btn top-btn" title="위로 가기">▲<br>TOP</button>
     </div>
 
     <header>
-        <!-- 방문자 카운터 -->
+        <!-- 방문자 카운터 (무료 배지 서비스) -->
         <div class="visitor-counter">
-            👁️ 누적 방문자수 <span id="visitorCount">1,284</span>명
+            <a href="https://visitor-badge.la/"><img src="https://visitor-badge.la/badge?page_id=globaljiho" alt="visitor badge"></a>
         </div>
 
         <div class="top-bar">글로벌 KLI 더탑본부</div>
@@ -590,20 +577,8 @@
                     <h4>청구의신 (레몬헬스케어)</h4>
                     <p>제휴 병원은 서류 없이, 전국 병원·약국은 영수증 촬영으로 청구. 진료 후 자동청구, 제증명서 모바일 발급, 진료내역 조회까지 지원합니다.</p>
                     <div class="btn-group">
-                        <!-- 구글 플레이 버튼 -->
-                        <a href="https://play.google.com/store/apps/details?id=com.lemonhc.insu" class="btn google-store-btn" target="_blank" rel="noopener">
-                            <svg class="store-logo" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.493 1.493 0 0 1-.61-1.21V3.024c0-.495.22-.962.61-1.21zM15.207 13.415l2.073 2.073-10.87 6.275c-.51.295-1.127.245-1.57-.126l10.367-8.222zM5.38 4.223l10.87 6.276-2.073 2.073L5.38 4.223zm11.385 7.078l2.97 1.714c.465.268.751.764.751 1.303s-.286 1.035-.751 1.303l-2.97 1.714-2.227-2.227 2.227-2.227z"/>
-                            </svg>
-                            Google Play
-                        </a>
-                        <!-- 앱스토어 버튼 -->
-                        <a href="https://apps.apple.com/kr/app/id1525881325" class="btn apple-store-btn" target="_blank" rel="noopener">
-                            <svg class="store-logo" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.31c.67-.82 1.12-1.96.99-3.1-.97.04-2.16.65-2.85 1.47-.61.71-1.14 1.87-1 2.99 1.08.08 2.19-.55 2.86-1.36z"/>
-                            </svg>
-                            App Store
-                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.lemonhc.insu" class="btn google-store-btn" target="_blank" rel="noopener">Google Play</a>
+                        <a href="https://apps.apple.com/kr/app/id1525881325" class="btn apple-store-btn" target="_blank" rel="noopener">App Store</a>
                     </div>
                 </div>
                 <div class="card">
@@ -611,18 +586,8 @@
                     <h4>실손보험 빠른청구 (지앤넷)</h4>
                     <p>제휴 대형병원의 수납 키오스크·앱과 연동되어 진료 직후 그 자리에서 실손 청구를 마칠 수 있는 서비스입니다. 이용 전 방문 병원의 제휴 여부를 확인하세요.</p>
                     <div class="btn-group">
-                        <a href="https://play.google.com/store/search?q=%EC%8B%A4%EC%86%90%EB%B3%B4%ED%97%98+%EB%B9%A0%EB%A5%B8%EC%B2%AD%EA%B5%AC&c=apps" class="btn google-store-btn" target="_blank" rel="noopener">
-                            <svg class="store-logo" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.493 1.493 0 0 1-.61-1.21V3.024c0-.495.22-.962.61-1.21zM15.207 13.415l2.073 2.073-10.87 6.275c-.51.295-1.127.245-1.57-.126l10.367-8.222zM5.38 4.223l10.87 6.276-2.073 2.073L5.38 4.223zm11.385 7.078l2.97 1.714c.465.268.751.764.751 1.303s-.286 1.035-.751 1.303l-2.97 1.714-2.227-2.227 2.227-2.227z"/>
-                            </svg>
-                            Google Play
-                        </a>
-                        <a href="https://apps.apple.com/kr/search?term=%EC%8B%A4%EC%86%90%EB%B3%B4%ED%97%98+%EB%B9%A0%EB%A5%B8%EC%B2%AD%EA%B5%AC" class="btn apple-store-btn" target="_blank" rel="noopener">
-                            <svg class="store-logo" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.31c.67-.82 1.12-1.96.99-3.1-.97.04-2.16.65-2.85 1.47-.61.71-1.14 1.87-1 2.99 1.08.08 2.19-.55 2.86-1.36z"/>
-                            </svg>
-                            App Store
-                        </a>
+                        <a href="https://play.google.com/store/search?q=%EC%8B%A4%EC%86%90%EB%B3%B4%ED%97%98+%EB%B9%A0%EB%A5%B8%EC%B2%AD%EA%B5%AC&c=apps" class="btn google-store-btn" target="_blank" rel="noopener">Google Play</a>
+                        <a href="https://apps.apple.com/kr/search?term=%EC%8B%A4%EC%86%90%EB%B3%B4%ED%97%98+%EB%B9%A0%EB%A5%B8%EC%B2%AD%EA%B5%AC" class="btn apple-store-btn" target="_blank" rel="noopener">App Store</a>
                     </div>
                 </div>
                 <div class="card">
@@ -630,18 +595,8 @@
                     <h4>똑닥 (ddocdoc)</h4>
                     <p>병원 예약·접수 앱으로 널리 쓰이며, 제휴 기관에서는 진료 후 실손보험 간편청구 기능까지 이어서 이용할 수 있습니다.</p>
                     <div class="btn-group">
-                        <a href="https://play.google.com/store/apps/details?id=com.ubicare.ddocdoc" class="btn google-store-btn" target="_blank" rel="noopener">
-                            <svg class="store-logo" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.493 1.493 0 0 1-.61-1.21V3.024c0-.495.22-.962.61-1.21zM15.207 13.415l2.073 2.073-10.87 6.275c-.51.295-1.127.245-1.57-.126l10.367-8.222zM5.38 4.223l10.87 6.276-2.073 2.073L5.38 4.223zm11.385 7.078l2.97 1.714c.465.268.751.764.751 1.303s-.286 1.035-.751 1.303l-2.97 1.714-2.227-2.227 2.227-2.227z"/>
-                            </svg>
-                            Google Play
-                        </a>
-                        <a href="https://apps.apple.com/kr/app/id1078737227" class="btn apple-store-btn" target="_blank" rel="noopener">
-                            <svg class="store-logo" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.31c.67-.82 1.12-1.96.99-3.1-.97.04-2.16.65-2.85 1.47-.61.71-1.14 1.87-1 2.99 1.08.08 2.19-.55 2.86-1.36z"/>
-                            </svg>
-                            App Store
-                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.ubicare.ddocdoc" class="btn google-store-btn" target="_blank" rel="noopener">Google Play</a>
+                        <a href="https://apps.apple.com/kr/app/id1078737227" class="btn apple-store-btn" target="_blank" rel="noopener">App Store</a>
                         <a href="https://www.ddocdoc.com" class="btn" target="_blank" rel="noopener">공식 웹사이트</a>
                     </div>
                 </div>
@@ -755,7 +710,7 @@
             </div>
         </section>
 
-        <!-- 담당 매니저 찾기 섹션 -->
+        <!-- 나의 담당 매니저 찾기 -->
         <section id="find-leader">
             <div class="route-title-banner" style="background-color: #E91E63; color: white;">나의 담당 매니저 찾기</div>
             <h2>담당 매니저를 검색하세요!</h2>
