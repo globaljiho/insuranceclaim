@@ -41,7 +41,7 @@
             word-break: keep-all;
         }
 
-        /* 우측 플로팅 메뉴 스타일 (가로로 나란히 배치 및 겹침 방지) */
+        /* 우측 플로팅 메뉴 스타일 (가로로 나란히 배치) */
         .floating-menu {
             position: fixed;
             right: 20px;
@@ -54,24 +54,23 @@
             gap: 8px;
         }
 
-        /* 나의 매니저 버튼 (핫핑크) */
+        /* 나의 매니저 버튼 (핫핑크, 글씨 한 줄로 나란히 배치) */
         .float-btn.manager-btn {
             background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            font-size: 0.7rem;
+            width: 60px;
+            height: 60px;
+            font-size: 0.58rem;
             font-weight: 800;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
             transition: all 0.3s ease;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            line-height: 1.1;
+            white-space: nowrap;
             flex-shrink: 0;
         }
 
@@ -86,8 +85,8 @@
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             font-size: 0.75rem;
             font-weight: 800;
             cursor: pointer;
@@ -365,9 +364,9 @@
                 right: 15px;
             }
             .float-btn {
-                width: 48px;
-                height: 48px;
-                font-size: 0.6rem;
+                width: 50px;
+                height: 50px;
+                font-size: 0.52rem;
             }
         }
 
@@ -455,7 +454,7 @@
 
     <!-- 우측 플로팅 메뉴 (가로 정렬: 나의 매니저 + TOP) -->
     <div class="floating-menu">
-        <button onclick="scrollToSection('find-leader')" class="float-btn manager-btn" title="매니저 찾기">나의<br>매니저</button>
+        <button onclick="scrollToSection('find-leader')" class="float-btn manager-btn" title="매니저 찾기">나의 매니저</button>
         <button onclick="scrollToTop()" class="float-btn top-btn" title="위로 가기">▲<br>TOP</button>
     </div>
 
